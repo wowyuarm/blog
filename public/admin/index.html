@@ -82,8 +82,12 @@
   
   <!-- 自定义错误处理UI -->
   <div id="identity-error">
-    Netlify身份验证服务连接错误。
-    <button onclick="retryIdentity()">重试</button>
+    Netlify身份验证服务连接错误。<br>
+    请确认：<br>
+    1. 您已在Netlify控制面板启用了Identity服务<br>
+    2. 您的Netlify站点URL正确：<span id="site-url"></span><br>
+    <button onclick="retryIdentity()">重试连接</button>
+    <button onclick="hideError()">关闭提示</button>
   </div>
   
   <!-- 必须在加载脚本前预先配置API URL -->
@@ -101,6 +105,11 @@
     // ** 用户配置区域 (结束) **
     // **********************************************************
     
+    // 显示正在使用的站点URL
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('site-url').textContent = NETLIFY_SITE;
+    });
+    
     // 预配置Netlify Identity API
     window.netlifyIdentity = {
       api: {
@@ -113,6 +122,10 @@
     // 错误处理函数
     function showIdentityError() {
       document.getElementById('identity-error').style.display = 'block';
+    }
+    
+    function hideError() {
+      document.getElementById('identity-error').style.display = 'none';
     }
     
     function retryIdentity() {
@@ -132,8 +145,13 @@
               container.textContent.includes('removeChild')) {
             container.style.display = 'none';
             console.log('已隐藏错误消息容器');
-            // 显示我们自己的错误处理UI
-            showIdentityError();
+            // 只在特定类型的错误时显示自定义错误处理UI
+            if (container.textContent.includes('Identity') || 
+                container.textContent.includes('identity') || 
+                container.textContent.includes('认证') || 
+                container.textContent.includes('身份验证')) {
+              showIdentityError();
+            }
           }
         });
       });
@@ -230,12 +248,18 @@
             loadingIndicator.style.display = 'none';
           }
           
-          // 尝试隐藏任何残留的错误消息元素
-          const errorElements = document.querySelectorAll('[id*=\"error\"], [class*=\"error\"], [class*=\"Error\"]');
+          // 尝试隐藏任何残留的错误消息元素，但避免隐藏普通UI元素
+          const errorElements = document.querySelectorAll('.notif__error, .notif__error-container, [class*="errorBoundary"], [class*="ReactModal__Content"] [class*="error"]');
           errorElements.forEach(el => {
             el.style.display = 'none';
             console.log("已隐藏错误消息元素");
           });
+
+          // 设置正常显示元素的时间，以避免闪烁
+          setTimeout(function() {
+            // 重置可能被错误隐藏的UI元素
+            document.getElementById('identity-error').style.display = 'none';
+          }, 3000);
 
         } catch (error) {
           console.error("CMS 初始化失败:", error);
