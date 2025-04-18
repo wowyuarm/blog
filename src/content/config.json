@@ -1,14 +1,14 @@
 {
-  "title": "Your Blog Title 🍃",
-  "description": "An open-source blog template inspired by Ghibli style, built with Next.js, TypeScript, and Tailwind CSS",
-  "author": "Your Name",
-  "logo": "/images/logo.png",
+  "title": "🧑‍🚀YuCreate's",
+  "description": "Thinking | Learning | Practicing",
+  "author": "禹创",
+  "logo": "/uploads/83c84f9fa430f81fcd87053fe57d6209.jpg",
   "favicon": "/favicon.ico",
   "adminUrl": "",
   "social": {
-    "github": "https://github.com/your-username/your-repo",
-    "twitter": "",
+    "github": "https://github.com/wowyuarm/blog",
+    "twitter": "https://x.com/wowyuarm",
     "weibo": "",
     "zhihu": ""
   }
-} 
+}
