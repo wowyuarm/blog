@@ -1,0 +1,557 @@
+@import "tailwindcss";
+@import "./ghibli-font.css";
+/* 导入highlight.js的默认样式，用于代码高亮 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css');
+/* 导入自定义代码块样式 */
+@import "./code-block.css";
+/* 导入手绘风格样式 */
+@import "./hand-drawn.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-ghibli);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-red-100: var(--color-red-100);   
+  --color-red-500: var(--color-red-500);
+  --color-red-900: var(--color-red-900);
+  --color-blue-100: var(--color-blue-100);
+  --color-blue-500: var(--color-blue-500);
+  --color-blue-900: var(--color-blue-900);
+}
+
+:root {
+  /* 吉卜力风格圆角 - 更加柔和圆润 */
+  --radius: 1.25rem;
+  --radius-sm: 0.75rem;
+  --radius-xs: 0.5rem;
+  
+  /* 自定义字体 */
+  --font-sans: var(--font-ghibli);
+  
+  /* 背景与前景色 - 更温暖的米白色与深灰棕色 */
+  --background: rgba(248, 244, 232, 0.95);
+  --foreground: rgba(92, 82, 74, 1);  /* 增加对比度 */
+  
+  /* 卡片样式 - 米白色纸张感 */
+  --card: rgba(255, 251, 240, 0.98);
+  --card-foreground: rgba(92, 82, 74, 0.95);
+  
+  /* 弹窗样式 */
+  --popover: rgba(255, 251, 240, 0.98);
+  --popover-foreground: rgba(92, 82, 74, 0.95);
+
+  /* 主色 - 鼠尾草绿 */
+  --primary: rgba(143, 170, 143, 0.95);
+  --primary-foreground: rgba(255, 251, 240, 1);
+
+  /* 次要色 - 暖赭石色 */
+  --secondary: rgba(210, 180, 140, 1);
+  --secondary-foreground: rgba(92, 82, 74, 0.95);
+
+  /* 强调色 - 柔和的灰蓝色 */
+  --accent: rgba(153, 175, 186, 0.9);
+  --accent-foreground: rgba(255, 251, 240, 1);
+
+  /* 边框、输入框和环形高亮 - 柔和的米色边框 */
+  --border: rgba(210, 180, 140, 0.3);
+  --input: rgba(255, 251, 240, 0.98);
+  --ring: rgba(143, 170, 143, 0.6);  /* 增加对比度，提高焦点状态可见性 */
+
+  /* 次要文本 - 温暖棕灰色 */
+  --muted: rgba(248, 244, 232, 0.98);
+  --muted-foreground: rgba(128, 117, 108, 0.9);  /* 增加对比度 */
+
+  /* 危险操作色 - 柔和的红棕色 */
+  --destructive: rgba(190, 120, 110, 0.85);
+
+  /* 图表颜色 - 柔和自然的色调 */
+  --chart-1: rgba(230, 220, 210, 1); 
+  --chart-2: rgba(210, 190, 170, 1); 
+  --chart-3: rgba(190, 170, 150, 1); 
+  --chart-4: rgba(170, 150, 130, 1);    
+  --chart-5: rgba(150, 130, 110, 0.9); 
+
+  /* 侧边栏样式 - 温暖米色 */
+  --sidebar: rgba(255, 251, 240, 0.98);
+  --sidebar-foreground: rgba(92, 82, 74, 0.95);
+  --sidebar-primary: rgba(143, 170, 143, 0.95);
+  --sidebar-primary-foreground: rgba(255, 251, 240, 1);
+  --sidebar-accent: rgba(248, 244, 232, 0.98);
+  --sidebar-accent-foreground: rgba(143, 170, 143, 0.95);
+  --sidebar-border: rgba(210, 180, 140, 0.3);
+  --sidebar-ring: rgba(143, 170, 143, 0.6);  /* 与全局 ring 颜色保持一致 */
+
+  /* 辅助颜色 - 暖色调 */
+  --color-red-100: rgba(250, 235, 225, 1);   
+  --color-red-500: rgba(190, 120, 110, 0.85);  
+  --color-red-900: rgba(160, 90, 80, 0.9);
+  --color-blue-100: rgba(230, 240, 245, 1);
+  --color-blue-500: rgba(153, 175, 186, 0.9);   
+  --color-blue-900: rgba(90, 110, 120, 0.9);   
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    
+    /* 全局手绘线条纹理背景 */
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        var(--hand-drawn-line-color),
+        var(--hand-drawn-line-color) var(--hand-drawn-line-thickness),
+        transparent var(--hand-drawn-line-thickness),
+        transparent var(--hand-drawn-line-spacing)
+      );
+  }
+  
+  /* 手绘感的内容容器 */
+  main, section, .content-container {
+    position: relative;
+  }
+  
+  /* 手绘横线 */
+  main::before, section::before, .content-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        var(--hand-drawn-line-color),
+        var(--hand-drawn-line-color) var(--hand-drawn-line-thickness),
+        transparent var(--hand-drawn-line-thickness),
+        transparent var(--hand-drawn-line-spacing)
+      );
+  }
+  
+  /* 垂直手绘线 - 更加柔和 */
+  .hand-drawn-vertical-lines {
+    position: relative;
+  }
+  
+  .hand-drawn-vertical-lines::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+    background-image: 
+      repeating-linear-gradient(
+        90deg,
+        var(--hand-drawn-line-color),
+        var(--hand-drawn-line-color) var(--hand-drawn-line-thickness),
+        transparent var(--hand-drawn-line-thickness),
+        transparent calc(var(--hand-drawn-line-spacing) * 3)
+      );
+  }
+}
+
+/* 吉卜力风格按钮 */
+.btn-ghibli {
+  @apply relative overflow-hidden transition-all duration-300;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* 全局动画相关 */
+.animations-disabled .PostCard,
+.animations-disabled .AnimatedButton {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* 性能优化相关 */
+.content-visibility-auto {
+  content-visibility: auto;
+}
+
+/* 防止布局偏移 */
+@media (min-width: 768px) {
+  .grid-cols-2 > * {
+    min-height: 400px;
+  }
+}
+
+/* 提示浏览器对哪些元素进行硬件加速 */
+.animate-fade-in-up,
+.animate-slow-float,
+.will-change-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 淡入上升动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* 缓慢浮动动画 */
+@keyframes slowFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slow-float {
+  animation: slowFloat 4s ease-in-out infinite;
+}
+
+/* 动画性能优化 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-fade-in-up,
+  .animate-slow-float {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* 常用阴影类 */
+.shadow-ghibli {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-ghibli-lg {
+  box-shadow: 0 12px 20px -3px rgba(210, 180, 140, 0.15), 0 8px 12px -6px rgba(92, 82, 74, 0.08);
+}
+
+.shadow-ghibli-sm {
+  box-shadow: 0 4px 8px -2px rgba(210, 180, 140, 0.1), 0 2px 4px -2px rgba(92, 82, 74, 0.05);
+}
+
+/* 优化文章阅读体验 */
+@layer components {
+  /* 优化文章的排版和可读性 */
+  .prose {
+    font-family: 'GhibliFontPro', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.75;
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+  
+  /* 优化标题层次 */
+  .prose h1 {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--primary);
+  }
+  
+  .prose h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  
+  /* 段落样式优化 */
+  .prose p {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--foreground);
+  }
+  
+  /* 引用块样式 */
+  .prose blockquote {
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--muted-foreground);
+    background-color: rgba(var(--primary-rgb), 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  
+  /* 列表样式 */
+  .prose ul {
+    padding-left: 1.5rem;
+    margin: 1.25rem 0;
+  }
+  
+  .prose ol {
+    padding-left: 1.5rem;
+    margin: 1.25rem 0;
+  }
+  
+  .prose li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* 链接样式 */
+  .prose a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.15em;
+    transition: all 0.2s ease;
+  }
+  
+  .prose a:hover {
+    color: rgba(var(--primary-rgb), 0.8);
+    text-decoration-thickness: 0.1em;
+  }
+  
+  /* 代码块自定义样式 */
+  .prose pre {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    overflow-x: visible;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* 暗色模式下的代码块背景 */
+  .dark .prose pre {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  /* 代码块中的语言标记 */
+  .prose pre .language-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(143, 170, 143, 0.1);
+    border-bottom-left-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+  }
+  
+  /* 行内代码 */
+  .prose :not(pre) > code {
+    background-color: rgba(var(--primary-rgb), 0.08);
+    color: var(--primary);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+  
+  /* 表格样式 */
+  .prose table {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    margin: 2rem 0;
+    border-collapse: collapse;
+  }
+  
+  .prose thead {
+    background-color: rgba(var(--primary-rgb), 0.08);
+    border-bottom: 2px solid var(--border);
+  }
+  
+  .prose th {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+  }
+  
+  .prose td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .prose tbody tr:hover {
+    background-color: rgba(var(--primary-rgb), 0.03);
+  }
+  
+  /* 图片样式 */
+  .prose img {
+    margin: 2rem auto;
+    border-radius: var(--radius-sm);
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 水平线 */
+  .prose hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border);
+    margin: 2.5rem 0;
+  }
+  
+  /* 代码块优化 */
+  .prose pre code {
+    font-family: var(--font-mono);
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    tab-size: 4;
+    hyphens: none;
+    direction: ltr;
+    text-align: left;
+    font-feature-settings: normal;
+    font-variant-ligatures: none;
+  }
+  
+  /* 修复代码块空格和特殊字符显示问题 */
+  .prose pre code .hljs-comment,
+  .prose pre code .comment {
+    white-space: pre-wrap;
+  }
+  
+  /* 代码块显示优化 */
+  .hljs {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: var(--font-mono);
+    color: var(--foreground);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* 文章内容区域的响应式排版 */
+@media (max-width: 768px) {
+  .prose {
+    font-size: 0.95rem;
+  }
+  
+  .prose h1 {
+    font-size: 1.85rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+  
+  .prose p, .prose li {
+    font-size: 1rem;
+  }
+}
+
+/* Add scrollbar hiding styles */
+body::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
