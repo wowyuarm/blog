@@ -345,43 +345,49 @@
             load_config_file: false
           };
           
-          // 强制手动初始化CMS
-          window.CMS_MANUAL_INIT = true;
-          
-          // 初始化CMS
-          try {
-            window.CMS.init({ config: config });
-            console.log("CMS初始化成功");
-          } catch (error) {
-            console.error("CMS初始化失败:", error);
+          // 验证配置对象是否有效
+          if (!config || !config.backend || !config.media_folder || !config.public_folder || !config.collections) {
+            console.error("CMS 配置对象无效或缺少关键字段:", config);
+            // 可以选择显示错误信息给用户
+            showIdentityError(); // 复用现有错误提示
+            return; // 阻止初始化
           }
           
-          // 无论初始化是否成功，都在一段时间后隐藏加载动画
-          setTimeout(function() {
-            var loadingElement = document.getElementById('cms-loading');
-            if (loadingElement) {
-              loadingElement.style.display = 'none';
-            }
-            
-            // 在CMS加载完成后，再次尝试隐藏错误消息
-            setTimeout(function() {
-              var errorElements = document.querySelectorAll('.notif__error, .error-container, [class*="error"], [class*="Error"]');
-              for (var i = 0; i < errorElements.length; i++) {
-                var el = errorElements[i];
-                if (el.textContent.includes('错误') || el.textContent.includes('Error') || el.textContent.includes('失败')) {
-                  el.style.display = 'none';
-                  console.log('已隐藏错误消息元素');
-                }
-              }
-            }, 1000);
-          }, 3000);
-            
-        } catch (e) {
-          console.error("CMS初始化发生错误:", e);
-          // 出错时也隐藏加载动画
-          document.getElementById('cms-loading').style.display = 'none';
+          console.log("使用的CMS配置:", JSON.stringify(config, null, 2)); // 打印完整配置供调试
+          
+          // 初始化CMS
+          window.CMS.init({ config });
+          
+          console.log("CMS初始化成功");
+          
+          // 隐藏加载指示器
+          const loadingIndicator = document.getElementById('cms-loading');
+          if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+          }
+          
+          // 尝试隐藏任何残留的错误消息元素
+          const errorElements = document.querySelectorAll('[id*=\"error\"], [class*=\"error\"], [class*=\"Error\"]');
+          errorElements.forEach(el => {
+            el.style.display = 'none';
+            console.log("已隐藏错误消息元素");
+          });
+
+        } catch (error) {
+          console.error("CMS 初始化失败:", error);
+          // 显示错误给用户
+          const errorContainer = document.getElementById('identity-error');
+          if (errorContainer) {
+            errorContainer.innerHTML = `CMS 初始化失败: ${error.message} <button onclick="retryIdentity()">重试</button>`;
+            errorContainer.style.display = 'block';
+          }
+          // 隐藏加载指示器
+          const loadingIndicator = document.getElementById('cms-loading');
+          if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+          }
         }
-      }, 1000);
+      }, 1000); // 延迟1秒确保Netlify Identity有足够时间加载
     });
   </script>
 </body>
