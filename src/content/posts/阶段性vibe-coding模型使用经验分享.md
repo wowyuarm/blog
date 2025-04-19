@@ -9,7 +9,7 @@ tags:
 ---
 关于模型使用方面，先说Gemini-2.5-pro，被Sam发布4o图片生成“狙击”，我认为他的强大被低估了。
 
-Gemini在**查找bug与修复方面**出乎意料的强大，但是他的工具调用积极性不高，如果不去引导他，甚至不知道项目的文件以及代码逻辑。（具体可见[从Cursor出发：对于Agent更好的理解与运用](https://mp.weixin.qq.com/s?__biz=Mzk1NzM4NzQ4Mg==&mid=2247483951&idx=1&sn=6c7c1b70c70d91bed0c82ced534d6f4e&scene=21#wechat_redirect)
+Gemini在**查找bug与修复方面**出乎意料的强大，但是他的工具调用积极性不高，如果不去引导他，甚至不知道项目的文件以及代码逻辑。（具体可见[从Cursor出发：对于Agent更好的理解与运用](https://mp.weixin.qq.com/s?__biz=Mzk1NzM4NzQ4Mg==&mid=2247483951&idx=1&sn=6c7c1b70c70d91bed0c82ced534d6f4e&scene=21#wechat_redirect))
 
 因此，我建议，对于一个比较完善的项目进行优化。现阶段Gemini旗舰模型是首选。
 
