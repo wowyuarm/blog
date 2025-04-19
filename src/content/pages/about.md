@@ -10,6 +10,4 @@ All in AI | 我相信的是**深度学习**的未来.
 
 X：https://x.com/wowyuarm
 
-如果你对该博客模板感兴趣，欢迎关注：https://github.com/wowyuarm/Personal-blog
-
-![](/uploads/微信图片_20250419081320.jpg)
+如果你对该博客模板感兴趣，欢迎关注：https://github.com/wowyuarm/WhisperWind
