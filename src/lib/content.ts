@@ -37,21 +37,33 @@ function parseMarkdownFile(filePath: string): Post {
     // 使用gray-matter解析frontmatter
     const { data, content } = matter(normalizedContent);
     
-    // 安全获取日期
-    const getValidDate = (dateStr: string | undefined) => {
-      if (!dateStr) return new Date().toISOString();
-      
-      try {
-        const date = new Date(dateStr);
-        // 检查是否为有效日期
-        if (isNaN(date.getTime())) {
-          console.warn(`Invalid date in ${filePath}: ${dateStr}, using current date instead`);
-          return new Date().toISOString();
-        }
-        return dateStr;
-      } catch (error) {
-        console.error(`Error parsing date in ${filePath}:`, error);
+    // 安全获取日期，并确保返回 ISO 字符串
+    const getValidDate = (dateInput: string | Date | undefined): string => {
+      // 如果输入为空，返回当前日期的 ISO 字符串
+      if (!dateInput) {
+        console.warn(`Missing date in ${filePath}, using current date instead`);
         return new Date().toISOString();
+      }
+      
+      let date: Date;
+
+      try {
+        // 尝试将输入（无论是字符串还是日期对象）转换为 Date 对象
+        date = new Date(dateInput);
+
+        // 检查转换后的日期是否有效
+        if (isNaN(date.getTime())) {
+          console.warn(`Invalid date format or value in ${filePath}: "${dateInput}", using current date instead`);
+          return new Date().toISOString(); // 无效则返回当前日期的 ISO 字符串
+        }
+
+        // 如果日期有效，返回其 ISO 字符串表示
+        return date.toISOString();
+
+      } catch (error) {
+        // 如果在 new Date() 构造过程中出现任何错误
+        console.error(`Error constructing date in ${filePath} from input "${dateInput}":`, error);
+        return new Date().toISOString(); // 出错则返回当前日期的 ISO 字符串
       }
     };
     
