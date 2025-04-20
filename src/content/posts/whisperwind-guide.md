@@ -1,6 +1,6 @@
 ---
 title: WhisperWind Blog 使用指南
-publishDate: 2024-04-06 12:00:00
+publishDate: 2025-04-06 12:00:00
 excerpt: 全面的 WhisperWind Blog 使用指南，包括如何部署项目、配置 Decap CMS 和个性化定制。
 featuredImage: /images/logo.png
 tags:
