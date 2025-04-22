@@ -3,6 +3,7 @@ title: AI Agent革命：大模型主导的自主进化 | 我相信模型本身
 publishDate: 2025-03-26 23:44:00
 excerpt: 未来AI
   Agent将以大模型为核心，通过强化学习和微调提升自主性，逐步取代工具集成的工作流形态。大模型公司占据主导，但开源模型和垂直领域为创业公司提供突破口。工作流Agent在短期内仍有价值，但长期将被更智能的Agent颠覆。
+featuredImage: /uploads/微信图片_20250422144030.jpg
 tags:
   - Agent
   - AI
