@@ -238,4 +238,27 @@ export function getPageContent(slug: string): Post | null {
   }
   
   return null;
+}
+
+/**
+ * 获取所有文章标签
+ */
+export function getAllTags(): string[] {
+  const posts = getAllPosts();
+  
+  // 从所有文章中收集标签，并去除重复项
+  const tagsSet = new Set<string>();
+  
+  posts.forEach(post => {
+    if (post.tags && Array.isArray(post.tags)) {
+      post.tags.forEach(tag => {
+        if (tag && typeof tag === 'string') {
+          tagsSet.add(tag);
+        }
+      });
+    }
+  });
+  
+  // 转换为数组并排序
+  return Array.from(tagsSet).sort();
 } 

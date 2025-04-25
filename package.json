@@ -20,6 +20,7 @@
     "lucide-react": "^0.486.0",
     "netlify-identity-widget": "^1.9.2",
     "next": "15.2.4",
+    "pinyin": "^4.0.0-alpha.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",

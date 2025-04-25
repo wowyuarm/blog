@@ -22,6 +22,7 @@ collections:
     slug: "{{slug}}" # 简化文件名格式
     fields: # 定义文章包含的字段
       - {label: "标题", name: "title", widget: "string"}
+      - {label: "URL路径", name: "slug", widget: "string", hint: "自定义文章的URL路径，建议使用英文或拼音，例如：my-first-post", required: false}
       - {label: "发布日期", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
       - {label: "摘要", name: "excerpt", widget: "text", required: false}
       - {label: "特色图片", name: "featuredImage", widget: "image", required: false}
@@ -36,6 +37,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "标题", name: "title", widget: "string"}
+      - {label: "URL路径", name: "slug", widget: "string", hint: "自定义页面的URL路径，建议使用英文或拼音，例如：about-me", required: false}
       - {label: "内容", name: "body", widget: "markdown"}
 
   # 添加站点配置集合

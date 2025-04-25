@@ -62,6 +62,10 @@ export default function PostPage({ post, siteConfig }: InferGetStaticPropsType<t
   
   const formattedDate = formatDate(post.publishDate);
   const featuredImage = processImagePath(post.featuredImage);
+  
+  // 获取当前页面URL（供SEO使用）
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const canonicalUrl = `${origin}/posts/${post.slug}`;
 
   return (
     <>
@@ -70,6 +74,11 @@ export default function PostPage({ post, siteConfig }: InferGetStaticPropsType<t
         description={post.excerpt || `阅读文章: ${post.title}`}
         siteConfig={siteConfig}
         ogImage={featuredImage}
+        author={siteConfig.author}
+        canonicalUrl={canonicalUrl}
+        publishDate={post.publishDate}
+        tags={post.tags}
+        keywords={post.tags ? post.tags.join(', ') : ''}
       />
       
       <article className="pb-16 pt-10">
