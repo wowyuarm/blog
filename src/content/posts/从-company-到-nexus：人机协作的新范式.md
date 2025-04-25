@@ -2,6 +2,7 @@
 title: 从 Company 到 Nexus：人机协作的新范式
 publishDate: 2025-04-25 22:23:00
 excerpt: 我们不应该使用AI，而是与AI成为Nexus的一部分......
+featuredImage: /uploads/chatgpt-image-2025年4月25日-22_39_24.png
 tags:
   - AI
   - Nexus
