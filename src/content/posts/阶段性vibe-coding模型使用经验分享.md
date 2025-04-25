@@ -1,12 +1,13 @@
 ---
 title: 阶段性vibe coding模型使用经验分享
-publishDate: 2025-04-06 22:58:00
+publishDate: 2025-04-06T22:58:00.000Z
 excerpt: 推荐Gemini作为架构师，Claude作为工程师的组合，以达到高效与创新的平衡。
 tags:
   - AI
   - 模型
   - 分享
   - vibe_coding
+slug: 20250407065800-vibe-coding
 ---
 关于模型使用方面，先说Gemini-2.5-pro，被Sam发布4o图片生成“狙击”，我认为他的强大被低估了。
 

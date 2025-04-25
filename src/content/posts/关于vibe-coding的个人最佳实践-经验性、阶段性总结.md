@@ -1,6 +1,6 @@
 ---
 title: 关于Vibe coding的个人最佳实践 | 经验性、阶段性总结
-publishDate: 2025-03-23 22:22:00
+publishDate: 2025-03-23T22:22:00.000Z
 excerpt: |-
   本文是对于使用cursor agent的使用的阶段性经验总结。你可以看到，如何简单且最大化地感受Vibe coding。
   这只是有关于Vibe coding的内容，我对于编程的未来持有乐观态度，我认为，编程的门槛降低了，价值仍然在不断提高。
@@ -9,6 +9,7 @@ tags:
   - AI
   - 分享
   - vibe_coding
+slug: 20250324062200-vibe-coding
 ---
 ## 01
 

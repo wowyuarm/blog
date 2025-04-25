@@ -1,12 +1,13 @@
 ---
 title: 解密Cursor：System Prompt 深度解析 | 最佳实践
-publishDate: 2025-04-19 22:48:00
+publishDate: 2025-04-19T22:48:00.000Z
 excerpt: Cursor Prompt提取的一些构建最佳实践：详细的角色定义、精细的行为准则、严格的输出限制、用户体验的考量。
 featuredImage: /uploads/屏幕截图-2025-04-19-224934.png
 tags:
   - AI
   - 分享
   - Prompt
+slug: 20250420064800-cursor-system-prompt
 ---
 ## 01 前言
 

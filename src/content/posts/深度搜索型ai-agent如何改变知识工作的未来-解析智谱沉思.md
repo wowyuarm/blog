@@ -1,6 +1,6 @@
 ---
 title: 深度搜索型AI Agent如何改变知识工作的未来 | 解析智谱沉思
-publishDate: 2025-03-31 19:06:00
+publishDate: 2025-03-31T19:06:00.000Z
 excerpt: 我认为，这标志着进阶AI应用产品形态的转变：从集成了工具（联网搜索）的chatbot形式，到整合了工具自主调用的Agent（包括工作流型Agent）形式。
 featuredImage: /uploads/屏幕截图-2025-04-22-140637.png
 tags:
@@ -8,6 +8,7 @@ tags:
   - AI
   - 分享
   - 深思
+slug: 20250401030600-ai-agent
 ---
 ## 01
 

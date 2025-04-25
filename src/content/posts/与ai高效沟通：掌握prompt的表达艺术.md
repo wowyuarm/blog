@@ -1,12 +1,13 @@
 ---
 title: 与AI高效沟通：掌握Prompt的表达艺术
-publishDate: 2024-12-26 22:10:00
+publishDate: 2024-12-26T22:10:00.000Z
 excerpt: 最重要的是，把Prompt设计当作一种沟通的艺术，与你的AI沟通交流，表达你自己的需求才能获得你想要的答案。
 featuredImage: /uploads/屏幕截图-2024-12-07-215104.png
 tags:
   - AI
   - prompt
   - 分享
+slug: 20241227061000-ai-prompt
 ---
 ## 01
 

@@ -24,6 +24,70 @@ export interface Post extends PostMeta {
 }
 
 /**
+ * 根据日期生成slug
+ * 格式: YYYYMMDDHHMMSS
+ */
+function generateSlugFromDate(dateString: string): string {
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return '';
+    }
+    
+    // 格式化为 YYYYMMDDHHMMSS
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    
+    return `${year}${month}${day}${hours}${minutes}${seconds}`;
+  } catch (error) {
+    console.error('Error generating slug from date:', error);
+    return '';
+  }
+}
+
+/**
+ * 从标题中提取英文单词
+ * 返回小写并用连字符连接的英文单词
+ */
+function extractEnglishWords(title: string): string {
+  if (!title) return '';
+  
+  try {
+    // 匹配所有英文单词（包括带下划线的词组如vibe_coding）
+    const englishWords = title.match(/[a-zA-Z0-9_]+/g);
+    
+    if (!englishWords || englishWords.length === 0) {
+      return '';
+    }
+    
+    // 将英文单词转换为小写并用连字符连接
+    return englishWords.join('-').toLowerCase();
+  } catch (error) {
+    console.error('Error extracting English words from title:', error);
+    return '';
+  }
+}
+
+/**
+ * 生成文章的slug
+ * 结合日期和标题中的英文单词（如果有）
+ */
+function generateSlug(publishDate: string, title: string): string {
+  const dateSlug = generateSlugFromDate(publishDate);
+  const titleSlug = extractEnglishWords(title);
+  
+  if (titleSlug) {
+    return `${dateSlug}-${titleSlug}`;
+  }
+  
+  return dateSlug;
+}
+
+/**
  * 从Markdown文件中获取元数据和内容
  */
 function parseMarkdownFile(filePath: string): Post {
@@ -75,12 +139,19 @@ function parseMarkdownFile(filePath: string): Post {
       console.warn(`Invalid tags format in ${filePath}:`, tags);
       return [];
     };
+
+    const publishDate = getValidDate(data.publishDate);
+    const title = data.title || path.basename(filePath, '.md');
+    
+    // 获取slug，优先级：手动设置 > 自动生成（日期+标题) > 文件名
+    const generatedSlug = generateSlug(publishDate, title);
+    const slug = data.slug || (generatedSlug ? generatedSlug : path.basename(filePath, '.md'));
     
     // 提取元数据
     const meta = {
-      title: data.title || path.basename(filePath, '.md'),
-      publishDate: getValidDate(data.publishDate),
-      slug: data.slug || path.basename(filePath, '.md'),
+      title,
+      publishDate,
+      slug,
       tags: getTags(data.tags),
       featuredImage: data.featuredImage || null,
       excerpt: data.excerpt || content.trim().split('\n')[0].slice(0, 150),
@@ -93,10 +164,15 @@ function parseMarkdownFile(filePath: string): Post {
   } catch (error) {
     console.error(`Error parsing markdown file ${filePath}:`, error);
     // 提供一个基本的后备对象而不是让操作完全失败
+    const now = new Date();
+    const nowString = now.toISOString();
+    const title = path.basename(filePath, '.md');
+    const generatedSlug = generateSlug(nowString, title);
+    
     return {
-      title: path.basename(filePath, '.md'),
-      publishDate: new Date().toISOString(),
-      slug: path.basename(filePath, '.md'),
+      title,
+      publishDate: nowString,
+      slug: generatedSlug || path.basename(filePath, '.md'),
       tags: [],
       content: '内容解析出错'
     };

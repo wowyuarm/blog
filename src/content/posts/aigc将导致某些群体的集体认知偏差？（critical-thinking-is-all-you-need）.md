@@ -1,12 +1,13 @@
 ---
 title: AIGC将导致某些群体的集体认知偏差？（Critical thinking is all you need）
-publishDate: 2024-12-25 21:18:00
+publishDate: 2024-12-25T21:18:00.000Z
 excerpt: 批判性思考不是对技术的否定，而是为了更好地运用技术。就像我们学会分辨信息真伪一样，这是数字时代必要的一项能力。
 featuredImage: /uploads/屏幕截图-2024-12-06-213147.png
 tags:
   - AI
   - 思维
   - 深思
+slug: 20241226051800-aigc-critical-thinking-is-all-you-need
 ---
 ## 01 当我们过度信任AI的回答
 
