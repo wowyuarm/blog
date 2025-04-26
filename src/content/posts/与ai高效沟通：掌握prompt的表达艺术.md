@@ -1,5 +1,6 @@
 ---
 title: 与AI高效沟通：掌握Prompt的表达艺术
+slug: 20241227061000-ai-prompt
 publishDate: 2024-12-26T22:10:00.000Z
 excerpt: 最重要的是，把Prompt设计当作一种沟通的艺术，与你的AI沟通交流，表达你自己的需求才能获得你想要的答案。
 featuredImage: /uploads/屏幕截图-2024-12-07-215104.png
@@ -7,11 +8,10 @@ tags:
   - AI
   - prompt
   - 分享
-slug: 20241227061000-ai-prompt
 ---
 ## 01
 
-这篇文章也是来自于我在与LLM（下面都用AI代指LLM或Agent）对话中产生的一些思考，不同于上一篇的深度思考，在这篇文章中，我想分享一些对于在日常中怎样更好地运用prompt的方法。
+这篇文章也是来自于我在与LLM（下面都用AI代指LLM或Agent）对话中产生的一些思考，不同于上一篇[Critical thinking is all you need](/posts/20241226051800-aigc-critical-thinking-is-all-you-need)，在这篇文章中，我想分享一些对于在日常中怎样更好地运用prompt的方法。
 
 我多次有这样的困扰：**随意提问导致AI回答不尽如人意，但又不想花费大量时间设计复杂的Prompt**。而自从我深度使用AI搜索并用在日常生活中，我的困扰更多了，也越想解决这个问题。
 
