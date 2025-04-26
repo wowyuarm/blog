@@ -45,15 +45,17 @@ export function Header({ siteConfig }: HeaderProps) {
       >
         <div className="flex items-center">
           <Link href="/" className="group flex items-center space-x-2 text-xl font-medium transition-all duration-300 mr-4"
-            aria-label="WhisperWind Blog"
+            aria-label="YX Nexus"
           >
             <div className="relative w-8 h-8 mr-2 rounded-full overflow-hidden border-2 border-primary/20 flex items-center justify-center bg-white/70">
               {logoError ? (
-                <span className="text-primary font-bold text-xl">W</span>
+                <span className="font-bold text-xl">
+                  <span className="text-[#D2B48C]">Y</span><span className="text-[#A4B0BE]">X</span>
+                </span>
               ) : (
                 <Image
                   src={logoPath}
-                  alt="WhisperWind Logo"
+                  alt="YX Nexus Logo"
                   width={32}
                   height={32}
                   className="object-cover rounded-full"
@@ -62,18 +64,37 @@ export function Header({ siteConfig }: HeaderProps) {
                 />                
               )}
             </div>
-            <motion.span
-              className="px-2 py-1 font-bold text-primary tracking-wide"
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
-            >
-              {siteConfig.title.split('Blog')[0]}
-            </motion.span>
-            <motion.span
-              className="font-medium text-secondary-foreground tracking-wide"
-              whileHover={{ y: -3, transition: { duration: 0.3, delay: 0.05 } }}
-            >
-              Blog
-            </motion.span>
+            {siteConfig.title.includes('Yu-Xi') ? (
+              <>
+                <motion.span
+                  className="px-1 py-1 font-bold tracking-wide"
+                  whileHover={{ y: -3, transition: { duration: 0.3 } }}
+                >
+                  <span className="text-[#D2B48C]">Y</span><span className="text-[#A4B0BE]">X</span>
+                </motion.span>
+                <motion.span
+                  className="font-medium text-secondary-foreground tracking-wide"
+                  whileHover={{ y: -3, transition: { duration: 0.3, delay: 0.05 } }}
+                >
+                  Nexus
+                </motion.span>
+              </>
+            ) : (
+              <>
+                <motion.span
+                  className="px-1 py-1 font-bold tracking-wide"
+                  whileHover={{ y: -3, transition: { duration: 0.3 } }}
+                >
+                  <span className="text-[#D2B48C]">Y</span><span className="text-[#A4B0BE]">X</span>
+                </motion.span>
+                <motion.span
+                  className="font-medium text-secondary-foreground tracking-wide"
+                  whileHover={{ y: -3, transition: { duration: 0.3, delay: 0.05 } }}
+                >
+                  Nexus
+                </motion.span>
+              </>
+            )}
           </Link>
           
           <nav className="hidden md:flex items-center space-x-4">

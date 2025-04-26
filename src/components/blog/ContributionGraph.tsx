@@ -81,6 +81,7 @@ export function ContributionGraph({ posts, className = "" }: ContributionGraphPr
     const monthLabels: {label: string, startColumnIndex: number}[] = [];
     let currentMonth = -1;
     let currentYear = -1;
+    let lastLabelIndex = -1; // 添加这个变量来跟踪上一个标签的位置
 
     // 遍历每一列（一周）的日期
     gridData.forEach((week, weekIndex) => {
@@ -90,14 +91,15 @@ export function ContributionGraph({ posts, className = "" }: ContributionGraphPr
         const month = firstValidDay.getMonth();
         const year = firstValidDay.getFullYear();
         
-        // 如果是新的一个月，添加标签
-        if (currentMonth !== month || currentYear !== year) {
-          // 添加新月份的标签
+        // 如果是新的一个月，并且与上一个标签有足够距离
+        if ((currentMonth !== month || currentYear !== year) && 
+            (lastLabelIndex === -1 || weekIndex - lastLabelIndex >= 3)) { // 确保标签之间至少间隔3列
           monthLabels.push({
-            label: new Intl.DateTimeFormat('zh-CN', { month: 'short' }).format(firstValidDay),
+            label: `${month + 1}月`,
             startColumnIndex: weekIndex
           });
           
+          lastLabelIndex = weekIndex;
           currentMonth = month;
           currentYear = year;
         }
@@ -152,7 +154,7 @@ export function ContributionGraph({ posts, className = "" }: ContributionGraphPr
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="relative py-4">
-          {/* 月份标签 - 优化定位 */}
+          {/* 月份标签 - 优化定位和样式 */}
           <div className="relative h-5 mb-2">
             {months.map((month, i) => {
               // 计算月份标签的位置偏移
@@ -160,8 +162,12 @@ export function ContributionGraph({ posts, className = "" }: ContributionGraphPr
               return (
                 <div
                   key={i}
-                  className="absolute top-0 text-xs text-muted-foreground whitespace-nowrap"
-                  style={{ left: `${leftPosition}px` }}
+                  className="absolute top-0 text-xs text-muted-foreground whitespace-nowrap font-medium tracking-wide"
+                  style={{ 
+                    left: `${leftPosition}px`,
+                    transform: 'translateX(-25%)', // 微调偏移量
+                    minWidth: '2rem' // 确保每个标签有最小宽度
+                  }}
                 >
                   {month.label}
                 </div>

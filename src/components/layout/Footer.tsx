@@ -38,8 +38,8 @@ export function Footer({ siteConfig }: FooterProps) { // config can be undefined
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
-            <Link href="/" className="font-bold text-primary text-xl tracking-wide mb-2">
-              🍃WhisperWind Blog
+            <Link href="/" className="font-bold tracking-wide mb-2 text-xl">
+              <span className="text-[#D2B48C]">Y</span><span className="text-[#A4B0BE]">X</span> <span className="text-secondary-foreground">Nexus</span>
             </Link>
             <p className="text-sm text-muted-foreground text-center md:text-left max-w-xs">
               {siteConfig.description}
@@ -105,7 +105,7 @@ export function Footer({ siteConfig }: FooterProps) { // config can be undefined
         
         <div className="border-t border-secondary/20 mt-8 pt-6 flex flex-col items-center">
           <p className="text-xs text-muted-foreground text-center">
-            &copy; {currentYear} 🍃WhisperWind Blog. All rights reserved.
+            &copy; {currentYear} YX Nexus. All rights reserved.
           </p>
         </div>
       </div>

@@ -35,14 +35,14 @@ export interface LinksConfig {
 
 // 默认配置，将在客户端和服务端都可用
 export const defaultSiteConfig: SiteConfig = {
-  title: '🍃WhisperWind Blog',
-  description: '一个具有吉卜力风格的开源博客模板',
-  author: 'Your Name',
+  title: 'Yu-Xi Nexus',
+  description: '禹创的个人博客',
+  author: '禹和曦',
   logo: '/images/logo.png',
   favicon: '/favicon.ico',
   adminUrl: '',
   social: {
-    github: 'https://github.com/yourusername/WhisperWind-blog',
+    github: 'https://github.com/wowyuarm/blog',
   },
   avatar: '/images/avatar.jpg',
 };

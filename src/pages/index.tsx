@@ -76,14 +76,18 @@ export default function Home({ allPosts, siteConfig }: InferGetStaticPropsType<t
           <div className="max-w-4xl mx-auto text-center content-area opacity-0 animate-fade-in-up">
             <div className="mb-4 animate-slow-float">
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-3 drop-shadow-sm">
-                <span className="text-primary">WhisperWind</span> Blog
+                <span className="text-[#D2B48C]">Yu</span>
+                <span className="text-[#708090] mx-1">-</span>
+                <span className="text-[#A4B0BE]">Xi</span>
+                <span className="text-secondary-foreground ml-2">Nexus</span>
               </h1>
               <p className="text-lg text-muted-foreground">寻找有趣的想法，记录思考的过程</p>
+              <p className="text-md text-muted-foreground mt-1 font-serif italic">Connecting Thoughts, Creating Cognition</p>
             </div>
           </div>
           
           {/* 装饰性云朵 */}
-          <div className="absolute left-1/4 bottom-0 opacity-20 text-primary">
+          <div className="absolute left-1/4 bottom-0 opacity-20 text-[#D2B48C]">
             <motion.svg 
               width="60" 
               height="30" 
@@ -98,7 +102,7 @@ export default function Home({ allPosts, siteConfig }: InferGetStaticPropsType<t
             </motion.svg>
           </div>
           
-          <div className="absolute right-1/4 top-10 opacity-15 text-primary">
+          <div className="absolute right-1/4 top-10 opacity-15 text-[#A4B0BE]">
             <motion.svg 
               width="40" 
               height="20" 
@@ -141,7 +145,7 @@ export default function Home({ allPosts, siteConfig }: InferGetStaticPropsType<t
         {/* 过渡装饰云朵 */}
         <div className="relative h-16">
           <motion.div
-            className="absolute left-1/2 -ml-10 text-primary/20"
+            className="absolute left-1/2 -ml-10 text-[#708090]/20"
             animate={{ y: [-2, 2, -2], rotate: [0, 1, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -207,7 +211,7 @@ export default function Home({ allPosts, siteConfig }: InferGetStaticPropsType<t
 
         {/* 页脚装饰 */}
         <div className="py-12 relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 text-primary/15 w-full max-w-md flex justify-center">
+          <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 text-[#D2B48C]/20 w-full max-w-md flex justify-center">
             <motion.svg 
               width="200" 
               height="30" 
