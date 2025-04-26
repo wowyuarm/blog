@@ -1,6 +1,6 @@
 ---
 title: AI辅助创作的局限性：基于两部长篇小说的实践研究
-publishDate: 2025-12-13 22:32:00
+publishDate: 2024-12-13 22:32:00
 excerpt: 共创的美妙之处在于，AI既是工具，也是伙伴，帮助我们探索未知，赋予创作更大的可能性。
 featuredImage: /uploads/83c84f9fa430f81fcd87053fe57d6209.jpg
 tags:
