@@ -7,7 +7,7 @@ function getRobotsTxt() {
   const adminUrl = siteConfig.adminUrl || '';
   
   // 确定站点URL
-  let siteUrl = process.env.SITE_URL || 'http://localhost:3000';
+  let siteUrl = process.env.SITE_URL || 'https://yxnexus.com';
   if (adminUrl && adminUrl.startsWith('http')) {
     const url = new URL(adminUrl);
     siteUrl = `${url.protocol}//${url.host}`;

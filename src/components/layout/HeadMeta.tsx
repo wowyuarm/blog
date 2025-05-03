@@ -26,7 +26,7 @@ export function HeadMeta({
   siteConfig 
 }: HeadMetaProps) {
   const router = useRouter();
-  const siteTitle = siteConfig?.title || '🍃WhisperWind Blog';
+  const siteTitle = siteConfig?.title || '🧑‍🚀YuCreate\'s Blog';
   const siteDescription = description || siteConfig?.description || '禹创的个人博客 Learning | Thinking | Practicing';
   const ogImg = ogImage || siteConfig?.logo || '/images/logo.png';
   const siteAuthor = author || siteConfig?.author || '';

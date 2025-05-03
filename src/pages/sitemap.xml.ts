@@ -14,8 +14,8 @@ function getSiteUrl() {
     return `${url.protocol}//${url.host}`;
   }
   
-  // 默认使用环境变量或本地开发URL
-  return process.env.SITE_URL || 'http://localhost:3000';
+  // 默认使用环境变量或生产环境URL
+  return process.env.SITE_URL || 'https://yxnexus.com';
 }
 
 function generateSiteMap(
