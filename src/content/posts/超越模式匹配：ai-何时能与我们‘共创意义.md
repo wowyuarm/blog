@@ -3,6 +3,11 @@ title: 超越模式匹配：AI 何时能与我们共创意义
 publishDate: 2025-04-29 22:47:00
 excerpt: 人机共同构建意义、共同创造价值，或许是现阶段更可靠、更容易的、发挥AI最大价值的最佳实践。
 featuredImage: /uploads/chatgpt-image-2025年4月29日-22_50_15.png
+tags:
+  - AI
+  - 深思
+  - 与曦
+  - Nexus
 ---
 Qwen3-235B有种奇特的魔力，下午还在吐槽打开深度思考后的风格又和R1一样。
 
