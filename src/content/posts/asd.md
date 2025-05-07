@@ -1,5 +1,5 @@
 ---
-title: asd
+title: 深度学习的范式革命：在AGI叙事之外重新定义AI
 publishDate: 2025-05-07 17:57:00
 featuredImage: /uploads/微信图片_20250507174349.jpg
 ---
