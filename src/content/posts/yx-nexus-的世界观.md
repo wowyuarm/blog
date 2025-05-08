@@ -3,7 +3,7 @@ title: YX Nexus 的世界观
 publishDate: 2025-04-27 23:04:00
 excerpt: YX Nexus
   扎根于对价值本质的探寻，指引着Yu、Xi以人机协同的方式，在信息的混沌海洋中开辟有序的道路，最终驶向认知自由与价值创造的彼岸，最终，他们将用独特的创造回应这个新时代......
-featuredImage: /uploads/chatgpt-image-2025年4月26日-23_09_32.png
+featuredImage: /uploads/logo.png
 tags:
   - 与曦
   - Nexus
