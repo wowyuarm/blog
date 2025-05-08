@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
           @font-face {
             font-family: 'GhibliFontPro';
             src: url('/fonts/Ghibli-Bold.otf') format('opentype');
-            font-weight: 600, 700;
+            font-weight: 700;
             font-style: normal;
             font-display: swap;
           }
@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
           @font-face {
             font-family: 'GhibliFontPro';
             src: url('/fonts/Ghibli.otf') format('opentype');
-            font-weight: 300, 400, 500;
+            font-weight: 400;
             font-style: normal;
             font-display: swap;
           }

@@ -1,0 +1,20 @@
+/* 吉卜力字体定义 */
+@font-face {
+  font-family: 'GhibliFontPro';
+  src: url('/fonts/Ghibli-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GhibliFontPro';
+  src: url('/fonts/Ghibli.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-ghibli: 'GhibliFontPro', ui-sans-serif, system-ui, sans-serif;
+} 

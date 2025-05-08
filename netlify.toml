@@ -1,6 +1,6 @@
 [build]
-  # 使用 npm ci 进行干净安装（包括dev依赖），然后再构建
-  command = "npm ci --include=dev && npm run build && cp -r public/* .next/"
+  # 使用更可靠的方式复制public目录下的文件
+  command = "npm ci --include=dev && npm run build && cp -r public/* .next/ && cp -r public/fonts .next/fonts"
   publish = ".next"
   # publish目录由Netlify Next.js插件自动处理
 
@@ -32,6 +32,14 @@
 #   from = "/identity"
 #   to = "/identity.html"
 #   status = 200 
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    # 允许跨域访问
+    Access-Control-Allow-Origin = "*"
+    # 缓存设置
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs" 

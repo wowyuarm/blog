@@ -22,6 +22,9 @@ export default function Document() {
         {/* Manifest链接启用 */}
         <link rel="manifest" href={`${basePath}/favicon/site.webmanifest`} />
         <meta name="theme-color" content="#ffffff" />
+        
+        {/* 直接使用静态CSS文件加载字体，绕过动态生成 */}
+        <link rel="stylesheet" href="/fonts/fonts.css" />
 
         {/* Preload 字体文件，使用带basePath的路径 */}
         <link

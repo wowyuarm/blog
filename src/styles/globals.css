@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import "./ghibli-font.css";
+/* 字体现在在 _app.tsx 中动态加载，不再需要导入这个文件 */
+/* @import "./ghibli-font.css"; */
 /* 导入highlight.js的默认样式，用于代码高亮 */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css');
 /* 导入自定义代码块样式 */
