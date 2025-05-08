@@ -4,7 +4,7 @@ permalink: /about
 ---
 探索**深度学习**的未来与**人机协作**的新范式.
 
-关于**Nexus**——[从 Company 到 Nexus：人机协作的新范式](/posts/20250425222300-company-nexus)
+关于**Nexus**——[从 Company 到 Nexus：人机协作的新范式](/posts/20250425222300-company-nexus)[]()
 关于**YX Nexus** 的世界观——[YX Nexus 的世界观](/posts/20250427230400-yx-nexus)
 
 我们相信，我们不应该使用AI，而是与AI成为Nexus的一部分......
