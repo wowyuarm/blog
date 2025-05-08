@@ -6,6 +6,7 @@ import '@/styles/globals.css'; // 使用新的CSS路径
 // import '@/styles/ghibli-font.css'; // Load the local font CSS
 import { useEffect } from 'react';
 import Head from 'next/head';
+// import { useRouter } from 'next/router'; // 导入 useRouter
 // import { getSiteConfig } from '@/lib/config'; // Removed unused import
 // import { SiteConfig } from '@/lib/config'; // Removed unused type import
 // import { NextComponentType, NextPageContext } from 'next'; // Removed unused imports
@@ -22,11 +23,7 @@ type MyAppProps = AppProps & {
 }
 
 function MyApp({ Component, pageProps }: MyAppProps) {
-  // Assume siteConfig is always provided by getStaticProps for regular pages
-  // For 404 or other error pages, siteConfig might be undefined.
-  // Layout/Footer components need to handle undefined siteConfig gracefully.
   const siteConfig = pageProps.siteConfig;
-
   const showHeader = Component.showHeader !== false;
   const showFooter = Component.showFooter !== false;
 
@@ -43,19 +40,15 @@ function MyApp({ Component, pageProps }: MyAppProps) {
             window.location.hash.includes('#access_token=')) {
           const adminPath = '/admin/';
           if (!window.location.pathname.endsWith(adminPath)) {
-            // 获取GitHub Pages的正确路径
-            let basePath = '';
-            
-            // 检测是否在GitHub Pages环境
+            let currentBasePath = ''; // 默认为空
+            // GitHub Pages specific basePath logic (Netlify will use '')
             if (window.location.hostname.includes('github.io')) {
-              // 从URL路径中提取仓库名称
               const pathSegments = window.location.pathname.split('/');
-              if (pathSegments.length > 1) {
-                basePath = `/${pathSegments[1]}`;
+              if (pathSegments.length > 1 && pathSegments[1] !== '') {
+                currentBasePath = `/${pathSegments[1]}`;
               }
             }
-            
-            window.location.href = `${basePath}${adminPath}`;
+            window.location.href = `${currentBasePath}${adminPath}`;
           }
         }
       }).catch(err => {
@@ -64,25 +57,6 @@ function MyApp({ Component, pageProps }: MyAppProps) {
     }
   }, []);
 
-  // 获取正确的basePath
-  const getBasePath = () => {
-    // 在客户端，可以从window.location获取
-    if (typeof window !== 'undefined') {
-      // GitHub Pages环境
-      if (window.location.hostname.includes('github.io')) {
-        const pathSegments = window.location.pathname.split('/');
-        if (pathSegments.length > 1) {
-          return `/${pathSegments[1]}`;
-        }
-      }
-    }
-    
-    // 在服务器端或者非GitHub Pages环境，返回空字符串
-    return '';
-  };
-
-  const basePath = getBasePath();
-
   return (
     <>
       <Head>
@@ -90,7 +64,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
         <style jsx global>{`
           @font-face {
             font-family: 'GhibliFontPro';
-            src: url('${basePath}/fonts/Ghibli-Bold.otf') format('opentype');
+            src: url('/fonts/Ghibli-Bold.otf') format('opentype');
             font-weight: 600, 700;
             font-style: normal;
             font-display: swap;
@@ -98,7 +72,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
 
           @font-face {
             font-family: 'GhibliFontPro';
-            src: url('${basePath}/fonts/Ghibli.otf') format('opentype');
+            src: url('/fonts/Ghibli.otf') format('opentype');
             font-weight: 300, 400, 500;
             font-style: normal;
             font-display: swap;
