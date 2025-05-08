@@ -1,6 +1,12 @@
+/* 
+ * 不再使用这个文件加载字体
+ * 字体现在在 _app.tsx 中动态加载，以解决不同部署环境的路径问题
+ *
+ * 原始代码保留以作参考：
+
 @font-face {
   font-family: 'GhibliFontPro';
-  src: url('/WhisperWind-blog/fonts/Ghibli-Bold.otf') format('opentype');
+  src: url('/fonts/Ghibli-Bold.otf') format('opentype');
   font-weight: 600, 700;
   font-style: normal;
   font-display: swap;
@@ -8,7 +14,7 @@
 
 @font-face {
   font-family: 'GhibliFontPro';
-  src: url('/WhisperWind-blog/fonts/Ghibli.otf') format('opentype');
+  src: url('/fonts/Ghibli.otf') format('opentype');
   font-weight: 300, 400, 500;
   font-style: normal;
   font-display: swap;
@@ -16,4 +22,6 @@
 
 :root {
   --font-ghibli: 'GhibliFontPro', ui-sans-serif, system-ui, sans-serif;
-} 
+}
+
+*/ 
