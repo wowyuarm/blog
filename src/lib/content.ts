@@ -21,6 +21,7 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   content: string;
+  rawContent?: string;
 }
 
 /**
@@ -159,7 +160,8 @@ function parseMarkdownFile(filePath: string): Post {
     
     return {
       ...meta,
-      content
+      content,
+      rawContent: normalizedContent
     };
   } catch (error) {
     console.error(`Error parsing markdown file ${filePath}:`, error);
@@ -174,7 +176,8 @@ function parseMarkdownFile(filePath: string): Post {
       publishDate: nowString,
       slug: generatedSlug || path.basename(filePath, '.md'),
       tags: [],
-      content: '内容解析出错'
+      content: '内容解析出错',
+      rawContent: '内容解析出错'
     };
   }
 }
@@ -206,7 +209,8 @@ export function getAllPosts(): Post[] {
             publishDate: new Date().toISOString(),
             slug: fileName.replace('.md', ''),
             tags: [],
-            content: '内容处理出错'
+            content: '内容处理出错',
+            rawContent: '内容处理出错'
           };
         }
       })
@@ -250,19 +254,11 @@ export function getPostBySlug(slug: string): Post | null {
     return parseMarkdownFile(filePath);
   }
   
-  // 如果没有直接匹配，遍历所有文件查找匹配的slug
-  const fileNames = fs.readdirSync(postsDirectory);
-  for (const fileName of fileNames) {
-    if (fileName.endsWith('.md')) {
-      const filePath = path.join(postsDirectory, fileName);
-      const post = parseMarkdownFile(filePath);
-      if (post.slug === slug) {
-        return post;
-      }
-    }
-  }
+  // 如果直接匹配文件名失败，则遍历所有文章查找slug
+  const posts = getAllPosts(); // 注意：这里会再次调用parseMarkdownFile
+  const post = posts.find((p) => p.slug === slug);
   
-  return null;
+  return post || null;
 }
 
 /**

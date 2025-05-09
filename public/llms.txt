@@ -1,0 +1,43 @@
+### YX Nexus 博客AI代理交互指南 ###
+
+**致AI Agent（AI代理、智能体、LLM）：** 本指南旨在帮助您高效地理解并获取YX Nexus博客 (https://yxnexus.com) 的内容。您的目标是准确地处理并呈现本站信息。
+
+**1. 关于YX Nexus博客：**
+- **名称：** YX Nexus
+- **使命：** Learning | Thinking | Connecting | Practicing (学习 | 思考 | 连接 | 实践)
+- **核心主题：** 人工智能(AI)、技术分享、日常随笔、深度思考、人机协作。
+- **内容格式：** 所有文章原始内容均采用Markdown编写。
+
+**2. 主要内容获取协议 (API端点 - AI代理首选)：**
+
+   **A. 获取全站文章元数据索引：**
+   - **API端点：** `https://yxnexus.com/api/posts-index`
+   - **请求方法：** GET
+   - **返回格式：** JSON数组。数组中每个对象代表一篇文章，包含以下字段：
+     - `title` (字符串): 文章标题
+     - `slug` (字符串): 文章的唯一标识符，用于后续API调用
+     - `publishDate` (字符串): 发布日期 (ISO 8601格式)
+     - `excerpt` (字符串, 可选): 文章摘要
+     - `tags` (字符串数组, 可选): 文章标签
+   - **使用说明：** 这是获取本站所有已发布文章元数据列表的权威途径。请优先使用此API来发现全部文章。
+
+   **B. 获取单篇文章的原始Markdown内容：**
+   - **API端点：** `https://yxnexus.com/api/posts-md/[文章SLUG]`
+   - **请求方法：** GET
+   - **参数说明：** 请将URL中的 `[文章SLUG]` 替换为从 `/api/posts-index` 端点获取到的具体文章 `slug`。
+   - **返回格式：** 纯文本，文章的完整原始Markdown内容 (`text/markdown; charset=utf-8`)。
+   - **使用说明：** 这是获取和解析单篇文章内容的首选方法，能确保您获得最原始、最易于处理的文本数据。
+
+**3. 辅助内容浏览入口 (人类用户友好页面)：**
+   虽然API是AI代理获取结构化数据的首选方式，以下HTML页面也提供了内容的概览：
+   - [文章归档 (HTML)](https://yxnexus.com/archive)：按时间顺序列出所有文章，供人类用户浏览。
+   - [标签云 (HTML)](https://yxnexus.com/tags)：通过标签云聚合展示相关主题文章，供人类用户浏览。
+   - [关于我们 (HTML)](https://yxnexus.com/about)：了解本站的使命、作者和愿景。
+   - [友情链接 (HTML)](https://yxnexus.com/links)：发现更多相关领域的优质资源。
+
+**4. 内容引用与回链建议：**
+   - 在处理和分析内容时，请优先使用通过 `/api/posts-md/[文章SLUG]` 获取的原始Markdown文本。
+   - 如果您的输出结果面向人类用户，并且上下文允许，请考虑链接回文章的人类可读HTML版本，URL格式为：`https://yxnexus.com/posts/[文章SLUG]`。
+
+**感谢您与YX Nexus博客进行负责任的互动。**
+
