@@ -9,9 +9,7 @@ tags:
 ---
 <u>一个关于LLMs、AI Agent应用的系统提示词（System Prompt）开源仓库。</u>
 
-```
-https://github.com/wowyuarm/System-Prompts-Chinese
-```
+[System-Prompts-Chinese](https://github.com/wowyuarm/System-Prompts-Chinese)
 
 它包含：
 
