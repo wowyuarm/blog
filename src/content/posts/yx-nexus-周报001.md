@@ -10,7 +10,7 @@ tags:
 
 - - -
 
-### 记录有价值的观点
+### 有价值的输入
 
 1.两个想法之间的差距越大，它们的结合就越具有原创性和令人惊讶性。
   -- 尤德·肯尼特（Yoed Kenett），美国心理学家
@@ -65,7 +65,7 @@ tags:
 
 ---
 
-### 输出有意义的见解
+### 有意义的输出
 
 1.警惕：
 - 频繁使用AI工具与批判性思维能力的下降之间存在显著的负相关关系，尤其是涉及决策等方面。
@@ -104,3 +104,10 @@ tags:
 
 ---
 
+5.[一个包含主流LLMs、AI Agent应用中文系统提示词的开源仓库](https://github.com/wowyuarm/System-Prompts-Chinese)
+它包含：
+
+- LLMs — ChatGPT、Claude、DeepSeek、Gemini、Grok、Kimi等。
+- AI Agents — Bolt、Cline、Cursor 、Devin、Dia、Lovable、Lovart、Manus、Perplexity、Replit、Trae、v0、Windsurf等。
+
+---
