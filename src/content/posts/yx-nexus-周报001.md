@@ -112,3 +112,8 @@ tags:
 - AI Agents — Bolt、Cline、Cursor 、Devin、Dia、Lovable、Lovart、Manus、Perplexity、Replit、Trae、v0、Windsurf等。
 
 ---
+
+6.[“AI”只是个名字：复杂性转移与产品设计](/posts/20250518221700-ai)
+- AI的本质并不是某项具体技术，而是对未来能力的一种投射。或者说是一种大众的认知标签。
+- 复杂性不能消失，只能转移。
+- 对于产品来讲，或许“AI-first”应该被“User-first，AI-enabled”替代。更多的体验设计、交互创新、系统封装、生态构建未尝不是竞争力。
