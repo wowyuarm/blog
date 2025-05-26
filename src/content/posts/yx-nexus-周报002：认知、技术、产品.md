@@ -2,6 +2,7 @@
 title: YX Nexus 周报002：认知、技术、产品
 publishDate: 2025-05-25 23:23:00
 excerpt: 周报002
+featuredImage: /uploads/chatgpt-image-2025年5月26日-11_56_23.png
 tags:
   - 周报
 ---
