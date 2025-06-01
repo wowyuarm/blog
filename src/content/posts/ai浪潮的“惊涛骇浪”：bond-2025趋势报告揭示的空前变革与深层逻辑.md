@@ -7,7 +7,7 @@ tags:
   - AI
   - 分享
 ---
-本文来自“互联网女王”Mary Meeker的340页AI趋势报告，为AI进行总结并基于我过往文章改写，我进行了一些微调。
+本文来自“互联网女王“Mary Meeker”的340页AI趋势报告，为AI进行总结并基于我过往文章改写，我进行了一些微调。
 
 原始报告：https://www.bondcap.com/reports/tai
 
