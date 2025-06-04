@@ -1,6 +1,7 @@
 ---
 title: 从颠覆到建设：token预测、第一性探讨、概率本质、思考方法论
 publishDate: 2025-06-04 11:56:00
+excerpt: 客观还是主观？貌似客观的思考好像成为了主观陈述，那个基于我的认知的世界；主观感受下的客观表达，也许也蕴藏着真正的真理…
 featuredImage: /uploads/chatgpt-image-2025年6月4日-11_56_39.png
 tags:
   - 深思
