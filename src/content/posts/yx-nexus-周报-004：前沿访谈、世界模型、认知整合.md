@@ -1,6 +1,7 @@
 ---
 title: YX Nexus 周报 004：前沿访谈、世界模型、认知整合
 publishDate: 2025-06-08 22:51:00
+excerpt: 本周主题主要聚焦在AI领域的高质量内容输入、前沿思想访谈、个人认知反思等
 featuredImage: /uploads/chatgpt-image-2025年6月9日-16_20_39.png
 tags:
   - 周报
