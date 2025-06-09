@@ -4,7 +4,6 @@ publishDate: 2025-06-01 22:45:00
 excerpt: 本周主题主要聚焦在AI Agent的认知、构建与经验，还有对于AI与认知科学相关结合的“情感”与“注意力机制”等
 featuredImage: /uploads/chatgpt-image-2025年6月2日-11_29_14.png
 tags:
-  - AI
   - 周报
 ---
 本周主题主要聚焦在AI Agent的认知、构建与经验，还有对于AI与认知科学相关结合的“情感”与“注意力机制”等
