@@ -1,6 +1,6 @@
 ---
 title: 一次关于 Docker Desktop 与网络代理冲突的深度排查
-publishDate: 2025-06-24 19:31:00
+publishDate: 2025-06-23 19:31:00
 excerpt: 软件的自动化行为往往是默认设置 + 环境状态 +历史行为的函数，只有追踪到底层的“注入时机”与“读取路径”，才能真正控制它。
 featuredImage: /uploads/屏幕截图-2025-06-24-193700.png
 tags:
