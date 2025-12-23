@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1249)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(5,0,0,5,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 1. The Organic Loop (Chaos/Human) - 不规则的手绘感路径 -->
+  <path d="M50 8C78 12 95 32 88 52C85 68 76 85 58 91C38 95 18 88 10 65C5 48 8 28 25 15C35 8 42 6 50 8Z" stroke="#2b2d42" stroke-width="3" stroke-linecap="round" fill="none" style="opacity: 0.9;"></path>
+  
+  <!-- 2. The Rational Needle (Logic/AI/Time) - 绝对笔直，刺穿边界 -->
+  <line x1="50" y1="50" x2="85" y2="15" stroke="#5b8ec4" stroke-width="2" stroke-linecap="round"></line>
+        
+  <!-- 3. The Anchor Point (Center) - 中心锚点 -->
+  <circle cx="50" cy="50" r="2" fill="#2b2d42"></circle>
+  
+  <!-- 可选：针尖的强调点 -->
+  <circle cx="85" cy="15" r="1.5" fill="#5b8ec4" opacity="0.6"></circle>
+</svg></svg></g></g><defs><clipPath id="SvgjsClipPath1249"><rect width="1000" height="1000" x="0" y="0" rx="250" ry="250"></rect></clipPath></defs></svg>

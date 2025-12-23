@@ -1,0 +1,48 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Layout from "./Layout.astro";
+import { SITE } from "@/config";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <main id="main-content">
+    <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
+      <slot />
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Add target="_blank" and rel="noopener noreferrer" to external links in markdown content
+  function handleExternalLinks() {
+    const aboutSection = document.querySelector('#about');
+    if (!aboutSection) return;
+    
+    const links = aboutSection.querySelectorAll('a');
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  }
+  
+  document.addEventListener('astro:page-load', handleExternalLinks);
+  handleExternalLinks();
+</script>
