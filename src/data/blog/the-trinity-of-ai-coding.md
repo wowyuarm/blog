@@ -2,18 +2,16 @@
 title: The Trinity of AI Coding and Context Engineering
 description: How do we design a runnable cognitive environment and operating system for AI? We need to know not only what to do, but also how to make AI understand.
 pubDatetime: 2025-07-04T07:29:28.000Z
-slug: the-trinity-of-ai-coding
-lang: en
 tags:
   - AI/coding
   - AI/context
-
 ---
+
 AI coding requires a **trinity**. I'm not inclined to call it vibe coding, although this process can be fully automated. However, the most important part is the continuous communication and dynamic adjustment optimization process.
 
-* The requirement proposer and current integrator (human core);
-* The architect who understands the requirements and has **complete context** of the project from 0 to 100 (Gemini-2.5-pro);
-* The engineer who can specifically execute the architect's requirements (I currently prefer using the VS Code plugin Augment).
+- The requirement proposer and current integrator (human core);
+- The architect who understands the requirements and has **complete context** of the project from 0 to 100 (Gemini-2.5-pro);
+- The engineer who can specifically execute the architect's requirements (I currently prefer using the VS Code plugin Augment).
 
 Both the architect and engineer are AI. Every system prompt must be **customized for specific projects** and kept **dynamically updated in real-time**. Remember not to use generic architect or engineer prompts. This can also be achieved by continuously communicating with AI to clarify direction and requirements. What's needed is constant iteration.
 
@@ -25,13 +23,13 @@ Additionally, there's information loss and errors from mutual transmission, and 
 
 This can also be **transferred** to other fields. For example, in film and video production. The most important thing is still to let AI understand comprehensively—they know much more than we do. How to extract it? In the past, this was actually so-called prompt engineering, but this is not enough. How to **transmit sufficiently accurate context** is the most important.
 
-- - -
+---
 
 This process is the manual practice of **Context Engineering**. After automation, it becomes the artistic expression of context engineering.
 
-After vibe coding, system prompt learning, and Software 3.0, Andrej Karpathy proposed Context Engineering (or more accurately, popularized it).
+After [vibe coding](https://x.com/karpathy/status/1886192184808149383), [system prompt learning](https://x.com/karpathy/status/1921368644069765486), and [Software 3.0](https://x.com/karpathy/status/1935518272667217925), Andrej Karpathy proposed [Context Engineering](https://x.com/karpathy/status/1937902205765607626) (or more accurately, popularized it).
 
-Tobi Lutke (Shopify CEO) described it as "the art of providing all necessary context so that LLMs can reasonably complete tasks."
+Tobi Lutke (Shopify CEO) described it as ["the art of providing all necessary context so that LLMs can reasonably complete tasks."](https://x.com/tobi/status/1935533422589399127)
 
 First, back to system prompt learning. AK proposed that human learning often relies more on explicit prompts: we take notes, refine strategies, and use them to enhance memory and behavior. He sees this as the third paradigm: **System Prompt Learning**—models accumulate, store, and apply problem-solving strategies by editing system prompts.
 
@@ -47,7 +45,7 @@ I believe the implementation of system prompt learning and context engineering i
 
 Prompts should no longer be viewed as simple strings, but as structured, dynamically generated **miniature operating systems** containing the entire world model (current system). LLMs are the CPUs running on this operating system.
 
-- - -
+---
 
 Our hippocampus and neocortex are responsible for storing facts, experiences, and skills. Through specific modules injected into the system prompt. Forming the **basic personality**.
 
@@ -57,14 +55,14 @@ Do LLMs need specific personalities? They can have them. Will it affect output q
 
 Our **working memory** and prefrontal cortex are responsible for integrating `sensory input, short-term memory, and long-term memory`, forming the current focus of thought. How does the brain assemble that system prompt? Can engineering means achieve similar functions?
 
-- - -
+---
 
 So, essentially, we have been discussing an `information orchestration system` for our collaboration with AI, and future AI-AI collaboration.
 
 True Context Engineering is not simply an upgraded version of Prompt Engineering, but redefines the information interface between humans and AI, and between AIs. This system requires:
 
-* On-demand injected `context and memory`;
-* `Precise, low-loss` transmission between task objectives and execution details;
-* Transition between different roles and capabilities.
+- On-demand injected `context and memory`;
+- `Precise, low-loss` transmission between task objectives and execution details;
+- Transition between different roles and capabilities.
 
 Perhaps compared to software engineers designing complex software systems, AI engineers design `how to communicate` between AI and humans, between AIs, `how context is shared and transmitted`, `respective tasks and specific collaboration processes`. How do we design runnable cognitive environments and operating systems for AI? We need to know not only what to do, but also how to make AI understand.

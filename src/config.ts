@@ -1,8 +1,8 @@
 export const SITE = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "YuCreate",
+  author: "yuAng",
   profile: "",
-  desc: "Personal blog of YuCreate for sharing ideas, thoughts and experiences.",
+  desc: "Personal blog of yuAng for sharing ideas, thoughts and experiences.",
   title: "YuCreate",
   ogImage: "yucreate-og.jpg",
   lightAndDarkMode: true,
@@ -15,7 +15,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "Edit page",
-    url: "https://github.com/wowyuarm/blog/edit/main/src/pages/", // append post slug to this url
+    url: "https://github.com/wowyuarm/blog/edit/main/src/data/blog/", // append post slug to this url
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"

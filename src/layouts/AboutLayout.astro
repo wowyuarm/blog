@@ -30,19 +30,19 @@ const { frontmatter } = Astro.props;
 <script>
   // Add target="_blank" and rel="noopener noreferrer" to external links in markdown content
   function handleExternalLinks() {
-    const aboutSection = document.querySelector('#about');
+    const aboutSection = document.querySelector("#about");
     if (!aboutSection) return;
-    
-    const links = aboutSection.querySelectorAll('a');
+
+    const links = aboutSection.querySelectorAll("a");
     links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+      const href = link.getAttribute("href");
+      if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
     });
   }
-  
-  document.addEventListener('astro:page-load', handleExternalLinks);
+
+  document.addEventListener("astro:page-load", handleExternalLinks);
   handleExternalLinks();
 </script>

@@ -284,15 +284,15 @@ const nextPost =
   /** Handle external links in markdown content
    *  Add target="_blank" and rel="noopener noreferrer" to external links */
   function handleExternalLinks() {
-    const article = document.querySelector('#article');
+    const article = document.querySelector("#article");
     if (!article) return;
-    
-    const links = article.querySelectorAll('a');
+
+    const links = article.querySelectorAll("a");
     links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+      const href = link.getAttribute("href");
+      if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
     });
   }

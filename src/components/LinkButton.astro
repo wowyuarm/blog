@@ -18,7 +18,9 @@ const {
 } = Astro.props;
 
 // Check if link is external
-const isExternalLink = href.startsWith("http://") || href.startsWith("https://");
+const isExternalLink =
+  typeof href === "string" &&
+  (href.startsWith("http://") || href.startsWith("https://"));
 ---
 
 {
