@@ -41,7 +41,7 @@ In the coming decades, there will be some skepticism about whether neural networ
 Returning to product perspective, how to let ordinary people use AI **without burden** is the focus of non-model AI applications.
 The chatbot form is also complexity migrating to the system. Pre-trained base models that only predict the next token might only help with article continuation, hence post-training emerged, transferring complexity to the system. Turning prediction machines into conversational assistants.
 
-So you see [Cursor](https://cursor.com)'s **seamless tool calling**, [Manus](https://manus.im)'s **interaction forms**—complexity is behind, within the model itself.
+So you see Cursor's **seamless tool calling**, Manus's **interaction forms**—complexity is behind, within the model itself.
 
 For products, perhaps "AI-first" should be replaced by **"User-first, AI-enabled"**. More experience design, interaction innovation, system encapsulation, ecosystem building might well be competitive advantages.
 
@@ -79,6 +79,6 @@ AI 的本质并不是一项特定的技术（如今它的定义实际上相当�
 回到产品角度，如何让普通人**无负担**地使用 AI 是非模型 AI 应用的重点。
 聊天机器人形式也是复杂性迁移到系统。只预测下一个 token 的预训练基础模型可能只对文章续写有帮助，因此出现了后训练，将复杂性转移到系统。将预测机器转化为对话助手。
 
-所以你看到 [Cursor](https://cursor.com) 的**无缝工具调用**、[Manus](https://manus.im) 的**交互表单**——复杂性在后面，在模型本身。
+所以你看到 Cursor 的**无缝工具调用**、Manus 的**交互表单**——复杂性在后面，在模型本身。
 
 对于产品，也许"AI-first"应该被替换为**"User-first, AI-enabled"**。更多的体验设计、交互创新、系统封装、生态建设可能是竞争优势。
