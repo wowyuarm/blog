@@ -1,0 +1,16 @@
+---
+import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
+import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
+---
+
+<button
+  id="lang-switcher"
+  aria-label="Switch language"
+  class="focus-outline flex items-center gap-1 text-sm hover:text-foreground/75 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
+>
+  <IconChevronLeft class="size-4 rtl:rotate-180" />
+  <span id="lang-display-en" class="hidden">EN</span>
+  <span id="lang-display-zh" class="hidden">中文</span>
+  <span id="lang-display-default">中文</span>
+  <IconChevronRight class="size-4 rtl:rotate-180" />
+</button>

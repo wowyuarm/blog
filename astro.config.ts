@@ -9,6 +9,8 @@ import {
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
+import { remarkAutoSpace } from "./src/utils/transformers/autoSpace";
+import { remarkFixChineseQuotes } from "./src/utils/transformers/fixChineseQuotes";
 import { SITE } from "./src/config";
 
 // https://astro.build/config
@@ -20,7 +22,12 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkFixChineseQuotes,
+      remarkAutoSpace,
+      remarkToc,
+      [remarkCollapse, { test: "Table of contents" }],
+    ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

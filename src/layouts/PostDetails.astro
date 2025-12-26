@@ -9,8 +9,10 @@ import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
+import { hasChineseContent } from "@/utils/bilingualContent";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
@@ -36,6 +38,9 @@ const {
 } = post.data;
 
 const { Content } = await render(post);
+
+const body = post.body || "";
+const hasZh = hasChineseContent(body);
 
 let ogImageUrl: string | undefined;
 
@@ -84,7 +89,20 @@ const nextPost =
 
 <Layout {...layoutProps}>
   <Header />
-  <BackButton />
+  {
+    SITE.showBackButton ? (
+      <div class="mx-auto mt-8 mb-2 flex w-full max-w-app items-center justify-between px-2">
+        <BackButton />
+        {hasZh && <LanguageSwitcher />}
+      </div>
+    ) : (
+      hasZh && (
+        <div class="mx-auto mt-8 mb-2 flex w-full max-w-app items-center justify-end px-2">
+          <LanguageSwitcher />
+        </div>
+      )
+    )
+  }
   <main
     id="main-content"
     class:list={[
@@ -114,7 +132,9 @@ const nextPost =
       id="article"
       class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
     >
-      <Content />
+      <div id="content-container">
+        <Content />
+      </div>
     </article>
 
     <hr class="my-8 border-dashed" />
@@ -298,8 +318,163 @@ const nextPost =
   }
   handleExternalLinks();
 
+  /** Initialize language switcher */
+  function initializeLanguageSwitcher() {
+    const switcher = document.getElementById("lang-switcher");
+    const contentContainer = document.getElementById("content-container");
+
+    if (!switcher || !contentContainer) return;
+
+    const rawHTML = contentContainer.innerHTML;
+    const separator = "<!-- zh-CN -->";
+
+    if (!rawHTML.includes(separator)) return;
+
+    const parts = rawHTML.split(separator);
+    const enHTML = parts[0] || "";
+    const zhHTML = parts[1] || "";
+
+    const enDiv = document.createElement("div");
+    enDiv.id = "content-en";
+    enDiv.className = "bilingual-content";
+    enDiv.innerHTML = enHTML;
+
+    const zhDiv = document.createElement("div");
+    zhDiv.id = "content-zh";
+    zhDiv.className = "bilingual-content hidden";
+    zhDiv.innerHTML = zhHTML;
+
+    contentContainer.innerHTML = "";
+    contentContainer.appendChild(enDiv);
+    contentContainer.appendChild(zhDiv);
+
+    const enContent = enDiv;
+    const zhContent = zhDiv;
+
+    function detectBrowserLanguageClient() {
+      let browserLang = navigator.language;
+      if (!browserLang) {
+        browserLang = navigator.userLanguage;
+      }
+      if (!browserLang) {
+        return "en";
+      }
+      if (browserLang.startsWith("zh") || browserLang.startsWith("CN")) {
+        return "zh-CN";
+      }
+      return "en";
+    }
+
+    let currentLang =
+      localStorage.getItem("post-lang") || detectBrowserLanguageClient();
+
+    function updateLanguage() {
+      const displayLang = currentLang === "zh-CN" ? "zh" : "en";
+      const langDisplayEn = document.getElementById("lang-display-en");
+      const langDisplayZh = document.getElementById("lang-display-zh");
+      const langDisplayDefault = document.getElementById(
+        "lang-display-default"
+      );
+
+      if (displayLang === "zh" && zhContent && enContent) {
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            enContent.classList.add("hidden");
+            zhContent.classList.remove("hidden");
+            if (langDisplayDefault) langDisplayDefault.classList.add("hidden");
+            if (langDisplayZh) langDisplayZh.classList.add("hidden");
+            if (langDisplayEn) langDisplayEn.classList.remove("hidden");
+          });
+        } else {
+          enContent.classList.add("hidden");
+          zhContent.classList.remove("hidden");
+          if (langDisplayDefault) langDisplayDefault.classList.add("hidden");
+          if (langDisplayZh) langDisplayZh.classList.add("hidden");
+          if (langDisplayEn) langDisplayEn.classList.remove("hidden");
+        }
+      } else if (enContent && zhContent) {
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            zhContent.classList.add("hidden");
+            enContent.classList.remove("hidden");
+            if (langDisplayDefault) langDisplayDefault.classList.add("hidden");
+            if (langDisplayEn) langDisplayEn.classList.add("hidden");
+            if (langDisplayZh) langDisplayZh.classList.remove("hidden");
+          });
+        } else {
+          zhContent.classList.add("hidden");
+          enContent.classList.remove("hidden");
+          if (langDisplayDefault) langDisplayDefault.classList.add("hidden");
+          if (langDisplayEn) langDisplayEn.classList.add("hidden");
+          if (langDisplayZh) langDisplayZh.classList.remove("hidden");
+        }
+      }
+    }
+
+    updateLanguage();
+
+    switcher.addEventListener("click", () => {
+      const newLang = currentLang === "en" ? "zh-CN" : "en";
+
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          document.documentElement.lang = newLang;
+          localStorage.setItem("post-lang", newLang);
+          currentLang = newLang;
+          updateLanguage();
+        });
+      } else {
+        document.documentElement.lang = newLang;
+        localStorage.setItem("post-lang", newLang);
+        currentLang = newLang;
+        updateLanguage();
+      }
+    });
+  }
+
+  initializeLanguageSwitcher();
+
   /* Go to page start after page swap */
   document.addEventListener("astro:after-swap", () =>
     window.scrollTo({ left: 0, top: 0, behavior: "instant" })
   );
 </script>
+
+<style>
+  .bilingual-content {
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  .bilingual-content.hidden {
+    display: none;
+  }
+
+  ::view-transition-old(.bilingual-content),
+  ::view-transition-new(.bilingual-content) {
+    animation-duration: 0.3s;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out-down {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+</style>

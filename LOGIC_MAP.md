@@ -40,6 +40,7 @@ flowchart LR
   CMP-utils["CMP-utils\nUtility Functions"]
   CMP-config["CMP-config\nConfiguration System"]
   CMP-build["CMP-build\nBuild & Deployment"]
+  CMP-layouts["CMP-layouts\nPage Layouts"]
 
   SYS-blog --> FLOW-development
   SYS-blog --> FLOW-build
@@ -55,6 +56,8 @@ flowchart LR
   FLOW-content -->|reads| CMP-content
   FLOW-content -->|transforms| CMP-utils
   FLOW-content -->|outputs| CMP-pages
+
+  CMP-layouts -->|uses| CMP-components
 ```
 
 ```yaml
@@ -156,6 +159,9 @@ components:
       - kind: code
         target: src/components/Search.astro
         why: "Client-side search interface"
+      - kind: code
+        target: src/components/LanguageSwitcher.astro
+        why: "Language switcher button for bilingual posts"
 
   - id: CMP-utils
     title: Utility Functions
@@ -179,6 +185,23 @@ components:
       - kind: code
         target: src/utils/generateOgImages.ts
         why: "OG image generation using Satori and Resvg"
+
+  - id: CMP-layouts
+    title: Page Layouts
+    purpose: "Define page layouts for different content types with consistent structure."
+    anchors:
+      - kind: file
+        target: src/layouts/
+        why: "Directory containing all layout definitions"
+      - kind: code
+        target: src/layouts/Layout.astro
+        why: "Base layout with head, meta tags, and global structure"
+      - kind: code
+        target: src/layouts/PostDetails.astro
+        why: "Individual blog post layout"
+      - kind: code
+        target: src/layouts/Main.astro
+        why: "Main content layout wrapper"
 
   - id: CMP-config
     title: Configuration System
@@ -574,6 +597,16 @@ relations:
       - kind: code
         target: src/utils/getSortedPosts.ts
         why: "Uses postFilter"
+
+  - id: REL-layouts-uses-components
+    from: CMP-layouts
+    to: CMP-components
+    kind: uses
+    note: "Page layouts use reusable components"
+    refs:
+      - kind: code
+        target: src/layouts/PostDetails.astro
+        why: "Uses Header, Footer, Tag, LanguageSwitcher, etc."
 ```
 
 ## Maintenance
