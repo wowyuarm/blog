@@ -1,7 +1,7 @@
 ---
 title: Context, Scaffolding, and Simplicity in Agent Design
 description: Questioning the full-context approach for agents, exploring progressive disclosure vs. pre-built context, and reflecting on simplicity as a guiding principle in agent architecture and collaboration.
-pubDatetime: 2025-02-10T12:00:00.000Z
+pubDatetime: 2026-02-10T12:00:00.000Z
 tags:
   - AI/coding
   - AI/context
