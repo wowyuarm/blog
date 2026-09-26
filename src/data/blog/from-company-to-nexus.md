@@ -1,7 +1,7 @@
 ---
 title: "From Company to Nexus: A New Paradigm for Human-AI Collaboration"
 pubDatetime: 2025-04-25T14:23:00.000Z
-featured: true
+featured: false
 tags:
   - AI/collaboration
   - AI/philosophy

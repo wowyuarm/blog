@@ -2,7 +2,7 @@
 title: "How I Collaborate with an Agent Team That Keeps Getting Better"
 pubDatetime: 2026-09-06T12:40:00.000Z
 description: From "agent teams aren't on this trajectory" to developing every day with an agent team that keeps getting better — how members become dimensional, why the member replaces the session as the default unit, where subagents should retreat to, and which judgments are, to this day, still only experience.
-featured: false
+featured: true
 draft: false
 tags:
   - AI/collaboration
