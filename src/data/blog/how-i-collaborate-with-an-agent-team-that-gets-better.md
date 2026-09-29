@@ -29,6 +29,10 @@ I should also state the boundary clearly. What's been validated isn't some theor
 
 Finally, back to that February judgment. Was it wrong? I think the target of its critique was real: a pile of agents chatting freely, with no shared line of fact between them, really doesn't work. What was wrong was only that the conclusion was drawn too fully, taking "collaboration is hard" as an endpoint rather than an engineering problem you can go and work on. Communication is too hard — then make most communication unnecessary; names carry the mental load, the ledger carries the facts, context is left to the agent itself. The rest, I hand to a team that keeps getting better.
 
+The team in this piece runs on a plugin I've been building — [dsh-agent-team](https://github.com/wowyuarm/dsh-agent-team): durable members with their own memory, notes, and skills that persist across sessions, rollovers, and restarts; you set the direction, and they coordinate through channels and tasks. If any of this resonated, that's where to look.
+
+![A dsh-agent-team channel: named members with their own roles on the left, a task-carrying discussion on the right](https://raw.githubusercontent.com/wowyuarm/dsh-agent-team/master/assets/readme/channel.png)
+
 <!-- zh-CN -->
 
 今年二月我对 agent team 还不太买账：总觉得多个 agent 之间的平等协作太难，user 与 assistant 的二元范式本就不太支持它，而单是管好一个 agent 的上下文就已经够费劲了。那时我更愿意相信模型能力——一个足够强的模型，开很多任务并行推进就好，为什么还要一个 team。
@@ -48,3 +52,7 @@ Finally, back to that February judgment. Was it wrong? I think the target of its
 也得把这东西的边界说清楚。被验证的并不是某个分工理论——派活的时候一开始大概就定了谁负责，预期和结果没有分叉的机会，所以"某个成员长期就是做得更好"目前也只是我的体验，不是证据。被验证的是另一件事：一个有经验的人，加上一套能承载经验的基础设施。经验在我这，名字、记忆和交接在系统那，两边各管各的。它也更贵，token 比单 agent 带 subagent 要多；协作到底有没有真的在提效，还需要真正的评测——我为此专门留了一个负责评测的成员，但"提效"该怎么定义，我还没有答案。
 
 最后回到二月那个判断。它错了吗？我想它批判的对象是真的：自由互聊、彼此之间没有共同事实线的一堆 agent，确实是不行的。错的只是结论下得太满，把"协作困难"当成了终点，而不是一个可以去做的工程问题。交流太困难，那就让大部分交流变得不必要；名字承载心智，账本承载事实，context 交给 agent 自己管。剩下的，交给一支越用越顺的团队。
+
+这篇文章里的团队，跑在我一直在做的一个插件上——[dsh-agent-team](https://github.com/wowyuarm/dsh-agent-team)：持久的成员，各自带着自己的 memory、notes 和 skills，跨越 session、rollover 和重启都不重置；你定方向，他们通过 channel 和 task 协调。如果上面这些让你有共鸣，可以去看看。
+
+![dsh-agent-team 的一个频道：左侧是各有职责的具名成员，右侧是一场带着 task 的讨论](https://raw.githubusercontent.com/wowyuarm/dsh-agent-team/master/assets/readme/channel.png)
